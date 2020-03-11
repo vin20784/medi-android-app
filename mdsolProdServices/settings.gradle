@@ -1,0 +1,2 @@
+rootProject.name='mdsolProdServices'
+include ':app'
