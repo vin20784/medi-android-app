@@ -1,19 +1,18 @@
 package com.vnc.mdsolprodservices
 
+import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.core.content.ContextCompat.startActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.RecyclerView
+
 const val key ="myobjkey"
-class RcViewAdapter(var context: Context,val userList: ArrayList<MovieModel>) : RecyclerView.Adapter<RcViewAdapter.ViewHolder>() {
+class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) : RecyclerView.Adapter<RcViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_adapter, parent, false)
         return ViewHolder(v);
@@ -22,38 +21,27 @@ class RcViewAdapter(var context: Context,val userList: ArrayList<MovieModel>) : 
         return userList.size
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        holder.img.setImageResource(userList[position].mIcon)
-        holder.name.text = userList[position].name
-        holder.YoR.text = userList[position].YearOfRel.toString()
-        holder.director.text = userList[position].dir_name.toString()
-        holder.rating.text = userList[position].rating.toString()
-
-
-
+        holder.name.text     = userList[position].productName
+        holder.director.text = userList[position].productdetails
         holder.itemView.setOnClickListener{
+            var productModel = userList[position]
+            var mContext = context as AppCompatActivity
 
-            //Toast.makeText(context,position.toString(),LENGTH_LONG).show()
-            //start new activity
-            //val myIntent = Intent(context,)
-
-            //var obj = holder as Bundle
-
-            startActivity(context,Intent(context, AddProductActivity::class.java),null)
+            val fragmentTransaction = mContext.getSupportFragmentManager().beginTransaction()
+            val productListFragment = ProductDetailsFragment.newInstance(productModel)
 
 
+            if (productListFragment != null) {
+                fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)
+            }
+            fragmentTransaction.addToBackStack("productListFragment")
+            fragmentTransaction.commit()
         }
     }
 
-    inner class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView)
-    {
-        val name: TextView = itemView.findViewById(R.id.mvName)
-        val YoR = itemView.findViewById<TextView>(R.id.mvYearOfRel)
-        val director = itemView.findViewById<TextView>(R.id.mvdir_name)
-        val rating = itemView.findViewById<TextView>(R.id.mvrating)
-        val img = itemView.findViewById<ImageView>(R.id.imageView)
-
-
-
+    inner class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView) {
+       val name     = itemView.findViewById<TextView>(R.id.productName)
+       val director = itemView.findViewById<TextView>(R.id.productDetails)
+       val img      = itemView.findViewById<ImageView>(R.id.imageView)
     }
 }
