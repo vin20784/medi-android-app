@@ -39,7 +39,7 @@ class RcViewAdapter(var context: Context,val userList: ArrayList<MovieModel>) : 
 
             //var obj = holder as Bundle
 
-            //startActivity(context,Intent(context, DetailCardActivity::class.java),null)
+            startActivity(context,Intent(context, AddProductActivity::class.java),null)
 
 
         }
