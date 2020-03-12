@@ -30,6 +30,7 @@ class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) 
             val fragmentTransaction = mContext.getSupportFragmentManager().beginTransaction()
             val productListFragment = ProductDetailsFragment.newInstance(productModel)
 
+
             if (productListFragment != null) {
                 fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)
             }
