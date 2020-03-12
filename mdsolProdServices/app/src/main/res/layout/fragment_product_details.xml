@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailsFragment"
+    android:background="#ffffff"
+    android:id="@+id/detailFragment"
+    android:layout_margin="20dp">
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/producyNameLay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product Name"/>
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/productName"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product Name"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/producyDetailsLay"
+            android:layout_below="@+id/producyNameLay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product Details"/>
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/productDetails"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product Details"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/producturlLay"
+            android:layout_below="@+id/producyDetailsLay"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product URL"/>
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/productUrl"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Product Details"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>
