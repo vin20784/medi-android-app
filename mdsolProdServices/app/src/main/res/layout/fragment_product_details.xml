@@ -4,67 +4,153 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductDetailsFragment"
-    android:background="#ffffff"
-    android:id="@+id/detailFragment"
-    android:layout_margin="20dp">
-    <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/producyNameLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal" >
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product Name"/>
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:id="@+id/productName"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product Name"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/producyDetailsLay"
-            android:layout_below="@+id/producyNameLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal" >
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product Details"/>
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:id="@+id/productDetails"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product Details"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/producturlLay"
-            android:layout_below="@+id/producyDetailsLay"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal" >
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product URL"/>
-            <TextView android:layout_width="0dp"
-                android:layout_weight="1"
-                android:id="@+id/productUrl"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Product Details"/>
-        </LinearLayout>
+    android:background="#002855"
+    android:id="@+id/detailFragment">
 
-    </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="start">
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#ffffff">
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="120dp"
+                android:src="@drawable/medi_ic"
+                android:id="@+id/imageLogo"
+                android:layout_centerHorizontal="true"/>
+            <LinearLayout
+                android:layout_below="@+id/imageLogo"
+                android:id="@+id/producyNameLay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal" >
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Name"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productNameT"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#002855"
+                    android:text="Product Name"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/producyDetailsLay"
+                android:layout_below="@+id/producyNameLay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true">
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Details"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productDetailsT"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#002855"
+                    android:text="Product Details"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/producturlLay"
+                android:layout_below="@+id/producyDetailsLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorAccent"
+                    android:text="URL"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productUrlT"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:autoLink="web"
+                    android:textColorLink="#002855"
+                    android:text="https://www.medidata.com/en/products/ecoa/" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/about_lay"
+                android:layout_below="@+id/producturlLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/aboutus"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="About Us"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/aboutUsT"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#002855"
+                    android:text="Medidata’s journey started in 1999 when a scientist working on his first clinical trial waded through inefficiencies and delays, and knew that technology could improve the process. Over time, we’ve grown to be the leader in clinical technology using the latest technology to help our life science clients bring their life-saving new treatments to the public." />
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:id="@+id/signBtn"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorAccent"
+                android:textColor="#002855"
+                android:text="Add Signature"
+                android:layout_below="@+id/about_lay" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:id="@+id/ButtonLay"
+                android:layout_below="@+id/about_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/aboutUs"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#002855" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/OK"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Ok"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

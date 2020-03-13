@@ -5,4 +5,5 @@ import java.util.*
 
 data class ProductModel(val productName: String = "",
                         val productdetails: String = "",
+                        val url:String = "",
                         val productIcon: Double = 0.0) : Serializable
