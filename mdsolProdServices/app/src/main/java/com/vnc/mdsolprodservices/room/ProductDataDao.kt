@@ -1,14 +1,15 @@
 package com.vnc.mdsolprodservices.room
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-
+@Dao
 interface ProductDataDao {
-    @Insert
-    suspend fun insert(product: ProductDataEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+     suspend fun insert(product: ProductDataEntity):Long
 
     @Query("SELECT * FROM productData")
-    suspend fun getAllMedidataProduct(): LiveData<List<ProductDataEntity>>
-
+     suspend fun getAllMedidataProduct(): List<ProductDataEntity>
 }

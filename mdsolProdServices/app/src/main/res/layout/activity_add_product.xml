@@ -152,21 +152,36 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/AddPrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="161dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginEnd="26dp"
-                android:layout_marginBottom="51dp"
-                android:background="#000000"
-                android:text="ADD"
-                android:textColor="#FFFDFD"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bAck"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/SelImg" />
+    <EditText
+        android:id="@+id/PrdDetailTxt"
+        android:layout_width="224dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="38dp"
+        android:editable="true"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:text="Enter product details"/>
+
+    <Button
+        android:id="@+id/addPrdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="251dp"
+        android:background="#000000"
+        android:text="ADD"
+        android:textColor="#FFFDFD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PrdDetailTxt" />
 
             <Button
                 android:id="@+id/bAck"
@@ -178,12 +193,7 @@
                 android:layout_marginBottom="51dp"
                 android:background="#000000"
                 android:text="BACK"
-                android:textColor="#FFFDFD"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/AddPrd"
-                app:layout_constraintTop_toBottomOf="@+id/SelImg"
-                app:layout_constraintVertical_bias="1.0" />
+                android:textColor="#FFFDFD"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>
