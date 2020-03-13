@@ -1,24 +1,19 @@
 package com.vnc.mdsolprodservices
 
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.vnc.mdsolprodservices.room.ProductDataEntity
-import com.vnc.mdsolprodservices.room.ProductDatabase
-import com.vnc.mdsolprodservices.viewmodel.ProductViewModel
 import kotlinx.android.synthetic.main.activity_add_product.*
 
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_add_product.*
 
 class AddProductActivity : AppCompatActivity() {
 
@@ -70,8 +65,39 @@ class AddProductActivity : AppCompatActivity() {
 
             }
         }
+        newIconimage.setOnClickListener{
+
+//Create an Intent with action as ACTION_PICK
+
+            //Create an Intent with action as ACTION_PICK
+            val intent = Intent(Intent.ACTION_PICK)
+            // Sets the type as image/*. This ensures only components of type image are selected
+
+            intent.type = "image/*"
+            //We pass an extra array with the accepted mime types. This will ensure only components with these MIME types as targeted.
+
+            val mimeTypes =
+                arrayOf("image/jpeg", "image/png")
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+            // Launching the Intent
+
+            startActivityForResult(intent, 2)
+        }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result code is RESULT_OK only if the user selects an Image
+        if (resultCode === Activity.RESULT_OK) when (requestCode) {
+            2 -> {
+                //data.getData returns the content URI for the selected Image
+                val selectedImage: Uri? = data!!.data
+                newIconimage.setImageURI(selectedImage)
+            }
+        }
+
+    }
     override fun onDestroy() {
         super.onDestroy()
         //alarmManager.cancel()

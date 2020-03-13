@@ -13,24 +13,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        app:cardElevation="8dp"
+        app:cardElevation="10dp"
         android:layout_margin="10dp"
-        android:layout_gravity="start">
+        android:layout_gravity="center_vertical">
         <RelativeLayout android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#ffffff">
+            android:background="#ffffff"
+            android:layout_gravity="center_vertical">
+            <LinearLayout
+                android:id="@+id/productImgTitleLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
             <ImageView
                 android:layout_width="90dp"
-                android:layout_height="120dp"
-                android:src="@drawable/medi_ic"
-                android:id="@+id/imageLogo"
-                android:layout_centerHorizontal="true"/>
+                android:layout_height="90dp"
+                android:src="@drawable/selcimg"
+                android:id="@+id/newIconimage"
+                android:layout_centerHorizontal="false"/>
+            <TextView android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:textColor="#002855"
+                android:text="Add New Product "
+                android:textAlignment="center"
+                android:layout_gravity="center_vertical"/>
+            </LinearLayout>
             <LinearLayout
-                android:layout_below="@+id/imageLogo"
+                android:layout_below="@+id/productImgTitleLay"
                 android:id="@+id/producyNameLay"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal" >
                 <TextView android:layout_width="0dp"
                     android:layout_weight="1"
@@ -50,7 +66,7 @@
                 android:id="@+id/productType"
                 android:layout_below="@+id/producyNameLay"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
                 <TextView android:layout_width="0dp"
                     android:layout_weight="1"
@@ -60,11 +76,11 @@
                     android:text="Type"/>
                 <EditText android:layout_width="0dp"
                     android:layout_weight="2"
-                    android:id="@+id/productDetailsE"
+                    android:id="@+id/productTypeE"
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
                     android:textColor="#002855"
-                    android:hint="Enter Product Details"/>
+                    android:hint="Enter Product Type"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/productUrlLay"
@@ -82,47 +98,57 @@
                     android:layout_weight="2"
                     android:id="@+id/productUrlT"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:autoLink="web"
                     android:textColorLink="#002855"
                     android:hint="Enter URL https://www.medidata.com/.." />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/productImgSelLay"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/productUrlLay"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/productDetailsE"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:layout_marginLeft="0dp"
+                    android:hint="Enter Product Description here ...."
+                    android:textColor="#002855"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/productButtonActionsLay"
-                android:layout_below="@+id/productUrlLay"
+                android:layout_below="@+id/productImgSelLay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp">
 
                 <Button
                     android:id="@+id/addPrdButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="155dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="168dp"
-                    android:layout_marginBottom="251dp"
-                    android:background="#000000"
+                    android:background="@color/colorAccent"
                     android:text="ADD"
-                    android:textColor="#FFFDFD"
+                    android:textColor="#002855"
                     />
-
                 <Button
                     android:id="@+id/bAck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="26dp"
-                    android:layout_marginTop="44dp"
-                    android:layout_marginEnd="48dp"
-                    android:layout_marginBottom="51dp"
-                    android:background="#000000"
+                    android:layout_marginLeft="50dp"
+                    android:background="@color/colorAccent"
                     android:text="BACK"
-                    android:textColor="#FFFDFD"/>
-
-
+                    android:textColor="#002855"/>
             </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
