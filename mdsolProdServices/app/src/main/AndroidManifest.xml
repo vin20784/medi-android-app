@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.vnc.mdsolprodservices">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,11 +13,7 @@
         android:roundIcon="@mipmap/ic_medi_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <receiver
-            android:name=".MedAlarmBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="TODO" />
+
 
         <activity android:name=".AddProductActivity" />
         <activity
@@ -25,11 +22,22 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
+        <receiver
+            android:name=".MedAlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+        <intent-filter>
+            <action android:name="com.vnc.mdsolprodservices" />
+        </intent-filter>
+
+        </receiver>
+
 
     </application>
 
