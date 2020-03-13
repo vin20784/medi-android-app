@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_add_product.*
 class AddProductActivity : AppCompatActivity() {
 
     private lateinit var alarmManager: AlarmManager
+    private lateinit var pendingIntent: PendingIntent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_product)
@@ -30,14 +31,14 @@ class AddProductActivity : AppCompatActivity() {
             // Intent part
             val intent = Intent(this, MedAlarmBroadcastReceiver::class.java)
             intent.action = "AddPrdNotify"
-            //intent.putExtra("PrdName", editText.text)
-            //registerReceiver()
+            intent.putExtra("PrdName", productNameE?.text)
+            /* registerReceiver() */
 
             val pendingIntentRequestCode = 100
             //val flag = 0
             //val pendingIntent = PendingIntent.getBroadcast(this, pendingIntentRequestCode, intent, flag)
 
-            val pendingIntent = PendingIntent.getBroadcast(
+             pendingIntent = PendingIntent.getBroadcast(
                 this,
                 pendingIntentRequestCode,
                 intent,
@@ -65,6 +66,7 @@ class AddProductActivity : AppCompatActivity() {
 
             }
         }
+        bAck.setOnClickListener(){finish()}
         newIconimage.setOnClickListener{
 
 //Create an Intent with action as ACTION_PICK
@@ -100,7 +102,7 @@ class AddProductActivity : AppCompatActivity() {
     }
     override fun onDestroy() {
         super.onDestroy()
-        //alarmManager.cancel()
+        alarmManager.cancel(pendingIntent)
 
 
     }

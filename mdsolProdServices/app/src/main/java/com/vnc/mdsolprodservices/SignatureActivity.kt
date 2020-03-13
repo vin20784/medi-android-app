@@ -26,6 +26,7 @@ class SignatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signature)
 
         signatureView?.setSigColor(Color.WHITE)
+        //signatureView?.setSigColor(Color.WHITE)
         clear = findViewById<Button>(R.id.clear)
         save = findViewById<Button>(R.id.save)
         cancel = findViewById<Button>(R.id.cancel)

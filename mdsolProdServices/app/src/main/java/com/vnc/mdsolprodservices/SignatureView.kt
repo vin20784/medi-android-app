@@ -25,7 +25,7 @@ class SignatureView(context: Context?, attrs: AttributeSet?) : View(context, att
     private  var curY:kotlin.Float = 0f
 
     private val TOUCH_TOLERANCE = 4
-    private val STROKE_WIDTH = 4
+    private val STROKE_WIDTH = 5
 
 
     init {
@@ -43,18 +43,19 @@ class SignatureView(context: Context?, attrs: AttributeSet?) : View(context, att
 
     fun clearSignature(): Boolean {
         if (mBitmap != null) createFakeMotionEvents()
-        if (mCanvas != null) {
-            mCanvas!!.drawColor(Color.WHITE)
-            mCanvas!!.drawPaint(bgPaint)
-            mPath!!.reset()
-            invalidate()
-        } else {
-            return false
+        when {
+            mCanvas != null -> {
+                mCanvas!!.drawColor(Color.WHITE)
+                mCanvas!!.drawPaint(bgPaint)
+                mPath!!.reset()
+                invalidate()
+            }
+            else -> return false
         }
         return true
     }
 
-    @SuppressLint("WrongThread")
+    //@SuppressLint("WrongThread")
     fun saveBitmap():String?{
         try {
             val root = Environment.getRootDirectory().absolutePath + "/"

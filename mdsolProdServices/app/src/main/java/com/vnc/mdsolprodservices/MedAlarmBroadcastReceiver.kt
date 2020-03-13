@@ -9,9 +9,10 @@ class MedAlarmBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         // Is triggered when alarm goes off, i.e. receiving a system broadcast
-        Toast.makeText(context, "im inbroadcast", Toast.LENGTH_LONG).show()
+
         if (intent.action == "AddPrdNotify") {
-            val fooString = intent.getStringExtra("PrdName")
+            Toast.makeText(context, "im inbroadcast and inside intent", Toast.LENGTH_LONG).show()
+             val fooString : String = intent.getStringExtra("PrdName")
             Toast.makeText(context, fooString, Toast.LENGTH_LONG).show()
         }
     }
