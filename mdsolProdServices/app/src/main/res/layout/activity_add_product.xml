@@ -150,8 +150,6 @@
                     android:textColor="@color/colorAccent"
                     android:text="Ok"/>
 
-            </LinearLayout>
-
     <EditText
         android:id="@+id/PrdDetailTxt"
         android:layout_width="224dp"
