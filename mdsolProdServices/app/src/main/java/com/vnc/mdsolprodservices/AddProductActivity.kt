@@ -80,8 +80,7 @@ class AddProductActivity : AppCompatActivity() {
     }
 
     private fun saveProductDataInDB(it: View?) {
-        var productDataEntity =
-            ProductDataEntity(System.currentTimeMillis(), "eCoa", "medicle", "test")
+        var productDataEntity = ProductDataEntity(System.currentTimeMillis(), "eCoa", "medicle", "test")
         //productViewModel?.insert(productDataEntity);
         println("Data inserted successfully")
        /* var allProduct: List<ProductDataEntity>? = productViewModel?.getMedidataProductData()

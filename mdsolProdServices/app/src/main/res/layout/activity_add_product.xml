@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,8 +9,6 @@
     android:id="@+id/detailFragment">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,11 +64,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
                     android:textColor="#002855"
-                    android:text="Product Details"/>
+                    android:hint="Enter Product Details"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/productUrlLay"
-                android:layout_below="@+id/producyDetailsLay"
+                android:layout_below="@+id/productType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true">
@@ -79,119 +78,52 @@
                     android:textSize="18sp"
                     android:textColor="@color/colorAccent"
                     android:text="URL"/>
-                <TextView android:layout_width="0dp"
+                <EditText android:layout_width="0dp"
                     android:layout_weight="2"
                     android:id="@+id/productUrlT"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:autoLink="web"
                     android:textColorLink="#002855"
-                    android:text="https://www.medidata.com/en/products/ecoa/" />
+                    android:hint="Enter URL https://www.medidata.com/.." />
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/about_lay"
-                android:layout_below="@+id/producturlLay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:id="@+id/aboutus"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/colorAccent"
-                    android:text="About Us"/>
-                <TextView android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:id="@+id/aboutUsT"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="#002855"
-                    android:text="Medidata’s journey started in 1999 when a scientist working on his first clinical trial waded through inefficiencies and delays, and knew that technology could improve the process. Over time, we’ve grown to be the leader in clinical technology using the latest technology to help our life science clients bring their life-saving new treatments to the public." />
-            </LinearLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:textSize="18sp"
-                android:id="@+id/signBtn"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorAccent"
-                android:textColor="#002855"
-                android:text="Add Signature"
-                android:layout_below="@+id/about_lay" />
+
+
 
             <LinearLayout
-                android:visibility="gone"
-                android:layout_marginTop="10dp"
-                android:id="@+id/ButtonLay"
-                android:layout_below="@+id/about_lay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="horizontal" >
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:id="@+id/aboutUs"
-                    android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="#002855" />
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:id="@+id/OK"
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/colorAccent"
-                    android:text="Ok"/>
-
-    <EditText
-        android:id="@+id/PrdDetailTxt"
-        android:layout_width="224dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="38dp"
-        android:editable="true"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Enter product details"/>
-
-    <Button
-        android:id="@+id/addPrdButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="251dp"
-        android:background="#000000"
-        android:text="ADD"
-        android:textColor="#FFFDFD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrdDetailTxt" />
-
-            <Button
-                android:id="@+id/bAck"
+                android:id="@+id/productButtonActionsLay"
+                android:layout_below="@+id/productUrlLay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginEnd="48dp"
-                android:layout_marginBottom="51dp"
-                android:background="#000000"
-                android:text="BACK"
-                android:textColor="#FFFDFD"/>
+                android:layout_centerInParent="true">
+
+                <Button
+                    android:id="@+id/addPrdButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="155dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="168dp"
+                    android:layout_marginBottom="251dp"
+                    android:background="#000000"
+                    android:text="ADD"
+                    android:textColor="#FFFDFD"
+                    />
+
+                <Button
+                    android:id="@+id/bAck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="51dp"
+                    android:background="#000000"
+                    android:text="BACK"
+                    android:textColor="#FFFDFD"/>
+
+
+            </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>
