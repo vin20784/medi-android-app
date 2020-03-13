@@ -46,7 +46,8 @@ class ProductDetailsFragment : Fragment() {
 
         val addSign = view.findViewById<Button>(R.id.signBtn)
         addSign.setOnClickListener {
-
+            val intent = Intent (activity, SignatureActivity::class.java)
+            startActivity(intent)
         }
 
         productName.setText(productModel.productName)
