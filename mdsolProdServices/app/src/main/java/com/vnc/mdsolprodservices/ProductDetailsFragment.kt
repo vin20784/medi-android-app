@@ -25,6 +25,7 @@ class ProductDetailsFragment : Fragment() {
         arguments?.let {
 
 
+
         }
     }
 
@@ -34,10 +35,12 @@ class ProductDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        var infview =  inflater.inflate(R.layout.fragment_product_details, container, false)
         var productModel = arguments?.getSerializable("Product_Model") as ProductModel
-      //  productName.text    = productModel.productName
-      //  productDetails.text = productModel.productdetails
-        return inflater.inflate(R.layout.fragment_product_details, container, false)
+        productName.text   // = productModel.productName
+        productDetails.text //= productModel.productdetails
+        return infview
     }
 
     companion object {

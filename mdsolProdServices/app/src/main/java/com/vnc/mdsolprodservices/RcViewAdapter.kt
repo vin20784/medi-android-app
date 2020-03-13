@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.vnc.mdsolprodservices.ProductDetailsFragment.Companion.newInstance
 
 const val key ="myobjkey"
 class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) : RecyclerView.Adapter<RcViewAdapter.ViewHolder>() {

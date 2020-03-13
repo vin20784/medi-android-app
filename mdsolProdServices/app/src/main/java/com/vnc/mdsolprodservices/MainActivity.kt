@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val fragmentTransaction = getSupportFragmentManager().beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         val productListFragment = ProductListFragment()
         fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)
         fragmentTransaction.addToBackStack("productListFragment")
