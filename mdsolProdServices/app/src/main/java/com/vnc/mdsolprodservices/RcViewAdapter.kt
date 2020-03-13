@@ -2,16 +2,18 @@ package com.vnc.mdsolprodservices
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.vnc.mdsolprodservices.ProductDetailsFragment.Companion.newInstance
 
-const val key ="myobjkey"
 class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) : RecyclerView.Adapter<RcViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_adapter, parent, false)
@@ -35,6 +37,8 @@ class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) 
             }
             fragmentTransaction.addToBackStack("productListFragment")
             fragmentTransaction.commit()
+
+
         }
     }
 

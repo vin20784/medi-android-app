@@ -28,6 +28,7 @@ class ProductDetailsFragment : Fragment() {
         arguments?.let {
 
 
+
         }
     }
 
