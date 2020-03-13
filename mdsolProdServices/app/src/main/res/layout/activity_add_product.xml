@@ -47,7 +47,7 @@
         android:layout_marginBottom="55dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Enter Name"
+        android:hint="Enter Name"
         app:layout_constraintBottom_toTopOf="@+id/PrdDetailTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/prodName"
