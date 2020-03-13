@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.vnc.mdsolprodservices.ProductDetailsFragment.Companion.newInstance
 
-const val key ="myobjkey"
 class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) : RecyclerView.Adapter<RcViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_adapter, parent, false)
@@ -32,7 +31,6 @@ class RcViewAdapter(var context: Context,val userList: ArrayList<ProductModel>) 
 
             val fragmentTransaction = mContext.getSupportFragmentManager().beginTransaction()
             val productListFragment = ProductDetailsFragment.newInstance(productModel)
-
 
             if (productListFragment != null) {
                 fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)

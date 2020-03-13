@@ -6,6 +6,16 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
+import android.view.View
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import com.vnc.mdsolprodservices.room.ProductDataEntity
+import com.vnc.mdsolprodservices.room.ProductDatabase
+import com.vnc.mdsolprodservices.viewmodel.ProductViewModel
+import kotlinx.android.synthetic.main.activity_add_product.*
+
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_product.*
 
@@ -39,6 +49,11 @@ class AddProductActivity : AppCompatActivity() {
 
 
             Toast.makeText(this, "im sending message", Toast.LENGTH_LONG).show()
+          
+           addPrdButton.setOnClickListener(){
+            saveProductDataInDB(it);
+
+            }
         }
     }
 
@@ -46,5 +61,15 @@ class AddProductActivity : AppCompatActivity() {
         super.onDestroy()
         //alarmManager.cancel()
 
+
     }
+   private fun saveProductDataInDB(it: View?) {
+        var productDataEntity= ProductDataEntity(System.currentTimeMillis(),"eCoa","medicle","test")
+        productViewModel?.insert(productDataEntity);
+        println("Data inserted successfully")
+        var allProduct: List<ProductDataEntity>? = productViewModel?.getMedidataProductData()
+        println(allProduct?.size)
+        allProduct?.forEach(){
+            println(productDataEntity.productName)
+        }
 }
