@@ -31,11 +31,6 @@
             android:name=".MedAlarmBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-
-        <intent-filter>
-            <action android:name="com.vnc.mdsolprodservices" />
-        </intent-filter>
-
         </receiver>
 
 

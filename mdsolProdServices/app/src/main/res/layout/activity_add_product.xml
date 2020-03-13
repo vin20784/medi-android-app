@@ -1,136 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context=".AddProductActivity">
+    tools:context=".AddProductActivity"
+    android:background="#002855"
+    android:id="@+id/detailFragment">
 
-    <TextView
-        android:id="@+id/prodName"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_add"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="138dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="73dp"
-        android:text="Name"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/prodName2"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="start">
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="#ffffff">
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="120dp"
+                android:src="@drawable/medi_ic"
+                android:id="@+id/imageLogo"
+                android:layout_centerHorizontal="true"/>
+            <LinearLayout
+                android:layout_below="@+id/imageLogo"
+                android:id="@+id/producyNameLay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal" >
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Name"/>
+                <EditText android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productNameE"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#002855"
+                    android:hint="Enter Product Name"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/productType"
+                android:layout_below="@+id/producyNameLay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true">
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorAccent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Type"/>
+                <EditText android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productDetailsE"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#002855"
+                    android:text="Product Details"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/productUrlLay"
+                android:layout_below="@+id/producyDetailsLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorAccent"
+                    android:text="URL"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/productUrlT"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:autoLink="web"
+                    android:textColorLink="#002855"
+                    android:text="https://www.medidata.com/en/products/ecoa/" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/about_lay"
+                android:layout_below="@+id/producturlLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/aboutus"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="About Us"/>
+                <TextView android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/aboutUsT"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#002855"
+                    android:text="Medidata’s journey started in 1999 when a scientist working on his first clinical trial waded through inefficiencies and delays, and knew that technology could improve the process. Over time, we’ve grown to be the leader in clinical technology using the latest technology to help our life science clients bring their life-saving new treatments to the public." />
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:id="@+id/signBtn"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorAccent"
+                android:textColor="#002855"
+                android:text="Add Signature"
+                android:layout_below="@+id/about_lay" />
 
-    <TextView
-        android:id="@+id/prodName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="482dp"
-        android:text="Details"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/PrdDetailTxt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prodName" />
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginTop="10dp"
+                android:id="@+id/ButtonLay"
+                android:layout_below="@+id/about_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal" >
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:id="@+id/aboutUs"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#002855" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/OK"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="Ok"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="55dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter Name"
-        app:layout_constraintBottom_toTopOf="@+id/PrdDetailTxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/prodName"
-        app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/PrdDetailTxt"
-        android:layout_width="224dp"
-        android:layout_height="152dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="38dp"
-        android:editable="true"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Enter product details"
-        app:layout_constraintBottom_toTopOf="@+id/AddPrd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/prodName2"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+            <Button
+                android:id="@+id/AddPrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="161dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="51dp"
+                android:background="#000000"
+                android:text="ADD"
+                android:textColor="#FFFDFD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/bAck"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/SelImg" />
 
-    <Button
-        android:id="@+id/AddPrd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="251dp"
-        android:background="#000000"
-        android:text="ADD"
-        android:textColor="#FFFDFD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PrdDetailTxt" />
+            <Button
+                android:id="@+id/bAck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="44dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="51dp"
+                android:background="#000000"
+                android:text="BACK"
+                android:textColor="#FFFDFD"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/AddPrd"
+                app:layout_constraintTop_toBottomOf="@+id/SelImg"
+                app:layout_constraintVertical_bias="1.0" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
 
-    <TextView
-        android:id="@+id/create_prod_txt"
-        android:layout_width="356dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="39dp"
-        android:text="Create new Product"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/prdtype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="49dp"
-        android:text="Type"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/prodName2"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prodName" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter  Product Type"
-        app:layout_constraintBottom_toTopOf="@+id/PrdDetailTxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/prdtype"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="1.0" />
-</androidx.constraintlayout.widget.ConstraintLayout>

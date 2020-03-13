@@ -4,6 +4,7 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,7 +25,7 @@ class AddProductActivity : AppCompatActivity() {
             // Intent part
             val intent = Intent(this, MedAlarmBroadcastReceiver::class.java)
             intent.action = "AddPrdNotify"
-            intent.putExtra("PrdName", editText.text)
+            //intent.putExtra("PrdName", editText.text)
             //registerReceiver()
 
             val pendingIntentRequestCode = 100
@@ -32,6 +33,11 @@ class AddProductActivity : AppCompatActivity() {
             //val pendingIntent = PendingIntent.getBroadcast(this, pendingIntentRequestCode, intent, flag)
 
             val pendingIntent = PendingIntent.getBroadcast(this, pendingIntentRequestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            var intfil = IntentFilter()
+                intfil.addAction("com.vnc.mdsolprodservices.MedAlarmBroadcastReceiver")
+            registerReceiver(MedAlarmBroadcastReceiver(),intfil)
+
             val alarmDelayInSecond = 10
             val alarmTimeAtUTC = System.currentTimeMillis() + alarmDelayInSecond * 1_000L
 
