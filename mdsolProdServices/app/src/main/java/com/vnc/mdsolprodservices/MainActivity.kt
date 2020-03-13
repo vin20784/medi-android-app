@@ -17,6 +17,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)
         fragmentTransaction.addToBackStack("productListFragment")
         fragmentTransaction.commit()
-
     }
 }

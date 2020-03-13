@@ -1,11 +1,14 @@
 package com.vnc.mdsolprodservices
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.layout_adapter.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,22 +37,30 @@ class ProductDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var productModel = arguments?.getSerializable("Product_Model") as ProductModel
-      //  productName.text    = productModel.productName
-      //  productDetails.text = productModel.productdetails
-        return inflater.inflate(R.layout.fragment_product_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_product_details, container, false)
+        val productModel = arguments?.getSerializable("Product_Model") as ProductModel
+        val productName = view.findViewById<TextView>(R.id.productNameT)
+        val productDetails = view.findViewById<TextView>(R.id.productDetailsT)
+        val productUrl = view.findViewById<TextView>(R.id.productUrlT)
+
+        val addSign = view.findViewById<Button>(R.id.signBtn)
+        addSign.setOnClickListener {
+
+        }
+
+        productName.setText(productModel.productName)
+        productDetails.setText(productModel.productdetails)
+        productUrl.setText(productModel.url)
+
+        productUrl.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse("https://www.medidata.com/en/products/ecoa/")
+            startActivity(browserIntent)
+        }
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProductDetailsFragment.
-         */
-
         @JvmStatic
         fun newInstance(productModel: ProductModel?): ProductDetailsFragment? {
             val fragment = ProductDetailsFragment()

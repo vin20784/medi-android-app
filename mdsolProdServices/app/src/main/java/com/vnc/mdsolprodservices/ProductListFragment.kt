@@ -35,13 +35,13 @@ class ProductListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
 
         val dataList = ArrayList<ProductModel>()
-        dataList.add(ProductModel("eCOA ", "Patient Cloud",4.8))
-        dataList.add(ProductModel("eConsent", "Patient Cloud", 4.3))
-        dataList.add(ProductModel("Virtual Trials", "Patient Cloud",4.1))
-        dataList.add(ProductModel("eTMF", "Trial Management",0.0))
-        dataList.add(ProductModel("CTMS",  "Trial Management" ,4.2))
-        dataList.add(ProductModel("CSA",  "Trial Management" ,4.2))
-        dataList.add(ProductModel("RBQM",  "Trial Management" ,4.4))
+        dataList.add(ProductModel("eCOA ", "Patient Cloud","https://www.medidata.com/en/products/ecoa/",4.8))
+        dataList.add(ProductModel("eConsent", "Patient Cloud", "https://www.medidata.com/en/products/econsent/",4.3))
+        dataList.add(ProductModel("Virtual Trials", "Patient Cloud","https://www.medidata.com/en/products-virtual-trials/",4.1))
+        dataList.add(ProductModel("eTMF", "Trial Management","https://www.medidata.com/en/products/etmf/",0.0))
+        dataList.add(ProductModel("CTMS",  "Trial Management","https://www.medidata.com/en/products/ctms/" ,4.2))
+        dataList.add(ProductModel("CSA",  "Trial Management" ,"https://www.medidata.com/en/products/centralized-statistical-analytics/",4.2))
+        dataList.add(ProductModel("RBQM",  "Trial Management","https://www.medidata.com/en/products/rbm/" ,4.4))
 
         val rvAdapter = RcViewAdapter(container?.context!!,dataList)
         recyclerView.adapter = rvAdapter;
