@@ -1,6 +1,7 @@
 package com.vnc.mdsolprodservices
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.detailFrameLayout, productListFragment)
         fragmentTransaction.addToBackStack("productListFragment")
         fragmentTransaction.commit()
+
+        startActivity(Intent(this,AddProductActivity::class.java))
 
     }
 }
